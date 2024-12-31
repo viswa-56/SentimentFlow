@@ -1,0 +1,313 @@
+/* .bt1 {
+    width: 6.5em;
+    height: 2.3em;
+    margin: 0.5em;
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 0.625em;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+button:hover {
+    color: black;
+}
+
+button:after {
+    content: "";
+    background: white;
+    position: absolute;
+    z-index: -1;
+    left: -20%;
+    right: -20%;
+    top: 0;
+    bottom: 0;
+    transform: skewX(-45deg) scale(0, 1);
+    transition: all 0.5s;
+}
+
+button:hover:after {
+    transform: skewX(-45deg) scale(1, 1);
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+} */
+
+.button {
+    position: relative;
+    width: 120px;
+    height: 40px;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    color: white;
+    flex-direction: column;
+    justify-content: center;
+    border: none;
+    padding: 12px;
+    gap: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    left: -4px;
+    top: -1px;
+    margin: auto;
+    width: 128px;
+    height: 48px;
+    border-radius: 10px;
+    background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100%);
+    z-index: -10;
+    pointer-events: none;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.button::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100%);
+    transform: translate3d(0, 0, 0) scale(0.95);
+    filter: blur(20px);
+}
+
+.button:hover::after {
+    filter: blur(30px);
+}
+
+.button:hover::before {
+    transform: rotate(-180deg);
+}
+
+.button:active::before {
+    scale: 0.7;
+}
+
+a{
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10vh;
+}
+
+.container {
+    background-color: antiquewhite;
+    width: 70vw;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.InputContainer {
+    width: 42vw;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom, rgb(227, 213, 255), rgb(255, 231, 231));
+    border-radius: 30px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.075);
+}
+
+.input {
+    width: 40vw;
+    height: 40px;
+    border: none;
+    outline: none;
+    caret-color: rgb(255, 81, 0);
+    background-color: rgb(255, 255, 255);
+    border-radius: 30px;
+    padding-left: 15px;
+    letter-spacing: 0.8px;
+    color: rgb(19, 19, 19);
+    font-size: 13.4px;
+}
+
+.form-container {
+    width: 50vw;
+    background: linear-gradient(#212121, #212121) padding-box,
+        linear-gradient(145deg, transparent 35%, #e81cff, #40c9ff) border-box;
+    border: 2px solid transparent;
+    padding: 32px 24px;
+    font-size: 14px;
+    font-family: inherit;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-sizing: border-box;
+    border-radius: 16px;
+    background-size: 200% 100%;
+    animation: gradient 5s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.form-container button:active {
+    scale: 0.95;
+}
+
+.form-container .form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-container .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.form-container .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #717171;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.form-container .form-group input {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 8px;
+    color: #fff;
+    font-family: inherit;
+    background-color: transparent;
+    border: 1px solid #414141;
+}
+
+.form-container .form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 8px;
+    resize: none;
+    color: #fff;
+    height: 96px;
+    border: 1px solid #414141;
+    background-color: transparent;
+    font-family: inherit;
+}
+
+.form-container .form-group input::placeholder {
+    opacity: 0.5;
+}
+
+.form-container .form-group input:focus {
+    outline: none;
+    border-color: #e81cff;
+}
+
+.form-container .form-group textarea:focus {
+    outline: none;
+    border-color: #e81cff;
+}
+
+.form-container .form-submit-btn {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    align-self: flex-start;
+    font-family: inherit;
+    color: #717171;
+    font-weight: 600;
+    width: 40%;
+    background: #313131;
+    border: 1px solid #414141;
+    padding: 12px 16px;
+    font-size: inherit;
+    gap: 8px;
+    margin-top: 8px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.form-container .form-submit-btn:hover {
+    background-color: #fff;
+    border-color: #fff;
+}
+
+.c2 {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    margin-bottom: 15vh;
+}
+
+.c3 {
+    /* Basic dimensions and centering */
+    width: 100%;
+    height: 93vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Dark mode colors and gradient */
+    background: #121212;
+    /* Fallback for browsers that don't support gradients */
+    background: linear-gradient(135deg,
+            #121212 25%,
+            #1a1a1a 25%,
+            #1a1a1a 50%,
+            #121212 50%,
+            #121212 75%,
+            #1a1a1a 75%,
+            #1a1a1a);
+    background-size: 40px 40px;
+
+    /* Animation */
+    animation: move 4s linear infinite;
+}
+
+@keyframes move {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 40px 40px;
+    }
+}
+
+.container1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* background-color: white; */
+    height: 50vh;
+    /* width: 40vw; */
+}
+
+.container1 {
+    font-size: larger;
+}
